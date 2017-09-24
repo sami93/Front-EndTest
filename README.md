@@ -3,6 +3,8 @@
 # Demo 
 # https://front-endtest-aiesec-darmstadt.firebaseapp.com
 
+# Data in FireBase
+![firebase](https://user-images.githubusercontent.com/19590686/30782687-359cbe58-a137-11e7-82ba-054457d0e49e.PNG)
 
 # Angular Full Stack
 The frontend is generated with [Angular CLI](https://github.com/angular/angular-cli)version 1.2.6. The backend is made with FireBase (i added FireBase to Store Data). Whole stack in [TypeScript](https://www.typescriptlang.org).
