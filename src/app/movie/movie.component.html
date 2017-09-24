@@ -1,0 +1,146 @@
+
+<div class="card" >
+  <h4 class="card-header">Current Movies </h4>
+  <div class="card-block">
+<p-dataTable [value]="movies$ | async" class="ui-g-12"
+             [reorderableColumns]="true" columnResizeMode="fit" [resizableColumns]="true" [globalFilter]="tableSearch"
+             selectionMode="single" [(selection)]="selectedRow"
+             [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]">
+
+  <p-header>
+    <label for="tableSearch"><span class="fa fa-search"> </span> </label>
+    <input id="tableSearch" #tableSearch type="text" placeholder="Search for a Movie">
+  </p-header>
+
+ <p-column field="title"  header="Title" [sortable]="true"></p-column>
+  <p-column field="description" header="Description" [sortable]="true"></p-column>
+  <p-column field="actor" header="Actor" [sortable]="true"></p-column>
+  <p-column field="year" header="Year" [sortable]="true"></p-column>
+</p-dataTable>
+
+
+    <div align="center">
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> New Movie</button>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog" role="document">
+
+        <!-- Modal content-->
+        <form  [formGroup]="addMovie"  >
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <div id="banner"><img src="assets/aiesec.png" ></div>
+
+            </div>
+
+
+            <div class="modal-body">
+
+              <div class="main-content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-header" data-background-color="orange">
+                          <h4 class="title"><i class="fa fa-plus-circle"></i> Add New Movie</h4>
+                          <p class="category">Complete Adding all fields</p>
+                        </div>
+
+
+                        <table class="table table-bordered   ">
+                          <tbody>
+
+
+
+                          <tr>
+                            <div class="form-group">
+
+                              <td>    <label for="title"><b><i class="fa fa-file-movie-o " aria-hidden="true"> title:</i> </b></label></td>
+
+
+                              <td>
+
+                                <input class="form-control" id="title" type="text" name="title" formControlName="title" placeholder="Title">
+                              </td>
+                            </div>
+
+
+
+                          </tr>
+
+
+
+
+
+                          <tr><div class="form-group">
+                            <td>    <label for="description"><b><i class="fa fa-audio-description " aria-hidden="true"> description:</i> </b></label></td>
+                            <td>
+
+                              <input class="form-control" id="description" type="text" name="description" formControlName="description" placeholder="Description"
+                                     >
+                            </td> </div>
+                          </tr>
+
+
+
+
+
+
+
+                          <tr>
+                            <div class="form-group">
+                              <td>    <label for="actor"><b><i class="fa fa-male " aria-hidden="true"> Actor:</i> </b></label></td>
+                              <td>
+
+                                <input class="form-control" id="actor" type="text" name="actor" formControlName="actor" placeholder="Actor"
+                                >                </td>
+
+                            </div>
+                          </tr>
+
+
+                          <tr>
+                            <div class="form-group">
+                              <td>    <label for="year"><b><i class="fa fa-hourglass-2 " aria-hidden="true"> Year:</i> </b></label></td>
+                              <td>
+
+                                <input class="form-control" id="year" type="number" name="actor" formControlName="year" placeholder="Year" min="0"
+                                >                </td>
+
+                            </div>
+                          </tr>
+                          </tbody>
+                        </table>
+
+
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+
+              <!--   <button type="btn btn-primary" class="btn btn-default" data-dismiss="modal"><i class="fa fa-floppy-o"></i> Close</button> -->
+              <button class="btn btn-primary" type="submit" [disabled]="!addMovie.valid" (click)="addDataSet()"data-dismiss="modal" ><i class="fa fa-plus"></i> ADD
+              </button>
+
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
